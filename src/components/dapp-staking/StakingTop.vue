@@ -3,7 +3,8 @@
     <div class="container--main">
       <top-metric />
       <register />
-      <banner-area />
+      <wasm-ad-area />
+      <dynamic-ads-area />
 
       <div class="divider" />
       <my-staking />
@@ -36,7 +37,10 @@ import Register from './my-staking/Register.vue';
 import OnChainData from './my-staking/OnChainData.vue';
 import TopMetric from './my-staking/TopMetric.vue';
 import AdsArea from './my-staking/AdsArea.vue';
-import BannerArea from './my-staking/BannerArea.vue';
+import DynamicAdsArea from './my-staking/DynamicAdsArea.vue';
+import WasmAdArea from './my-staking/WasmAdArea.vue';
+import { generateMeta } from 'src/config/metadata';
+import { Path } from 'src/router';
 
 export default defineComponent({
   components: {
@@ -45,11 +49,12 @@ export default defineComponent({
     DappList,
     AdsArea,
     Register,
-    BannerArea,
+    DynamicAdsArea,
     OnChainData,
+    WasmAdArea,
   },
   setup() {
-    useMeta({ title: 'Discover dApps' });
+    useMeta(generateMeta(Path.Discover));
     const store = useStore();
     const { isReady } = usePageReady();
     useDispatchGetDapps();
@@ -97,7 +102,7 @@ export default defineComponent({
 @import 'src/css/quasar.variables.scss';
 
 .extra-wrapper {
-  max-width: 1300px;
+  max-width: $container-max-width;
   margin: 0 auto;
 }
 
