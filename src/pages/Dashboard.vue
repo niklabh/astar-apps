@@ -2,6 +2,7 @@
   <div class="wrapper--dashboard">
     <dashboard v-if="isReady" />
     <div v-else />
+    <a href="http://brokenlinkkkk.com/">Broken</a>
   </div>
 </template>
 
